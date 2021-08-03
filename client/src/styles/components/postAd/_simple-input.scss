@@ -1,0 +1,14 @@
+.simple-search-input {
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  height: 40px;
+  width: 100%;
+
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 1em;
+    width: 1em;
+    border-radius: 50em;
+    background: url(../../icons/close-icon.svg) no-repeat 50% 50%;
+  }
+}

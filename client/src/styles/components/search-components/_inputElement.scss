@@ -1,0 +1,24 @@
+
+
+.input-component {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto 5px;
+
+  input {
+    border: none;
+    margin: auto;
+    height: 18px;
+    // width: fit-content;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  div{
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,27 @@
+.search-by-entry-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 0 0;
+
+  .search-date {
+    padding: 10px 10px 9px 10px;
+    border: 1px solid #ccc;
+  }
+
+  input[type="date"] {
+    border: none;
+    outline: none;
+  }
+  .checkbox-element {
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 20px;
+  }
+
+  .checkmark{
+    &::after{
+        top: -1px;
+    }
+  }
+}

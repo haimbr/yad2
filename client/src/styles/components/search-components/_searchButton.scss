@@ -1,0 +1,26 @@
+.search-button {
+  cursor: pointer;
+  width: 100px;
+  background: #ff7100;
+  height: 41px;
+  margin-top: 20px;
+  margin-right: 5px;
+  position: relative;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  color: white;
+
+  span {
+    margin: 10px;
+  }
+  .search-icon {
+    font-size: 1.5rem;
+    &::before {
+      content: "\26B2";
+      position: absolute;
+      transform: rotate(315deg);
+      top: 5px;
+    }
+  }
+}

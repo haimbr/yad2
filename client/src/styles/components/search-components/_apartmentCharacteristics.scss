@@ -1,0 +1,25 @@
+.apartment-characteristics {
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 10px 0;
+    margin: 0 40px;
+    text-align: right;
+    border-bottom: 1px solid #ccc;
+    background: white;
+  }
+
+  ul > div {
+    height: 45px;
+    width: 176px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    // font-size: 1.1rem;
+  }
+
+  .checkbox-element .checkmark:after{
+      top: -2px;
+  }
+}

@@ -1,0 +1,16 @@
+.custom-select {
+  select {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    width: 100%;
+    cursor: pointer;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+    text-indent: 8px;
+    font-family: Rubik, sans-serif;
+  }
+}

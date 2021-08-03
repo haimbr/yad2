@@ -1,0 +1,33 @@
+.apartment-floor {
+  display: flex;
+  margin: 15px 0;
+  align-items: flex-end;
+
+  input {
+    width: 90px;
+  }
+  .floors-list {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 120px;
+    padding: 0;
+    background: white;
+    height: 320px;
+    position: absolute;
+    border: 1px solid #00000021;
+    width: 110px;
+    font-size: 0.9rem;
+    margin-right: 5px;
+
+    li {
+      padding: 11px 10px;
+
+      &:hover {
+        background: #eeeeee;
+        cursor: pointer;
+      }
+    }
+  }
+}

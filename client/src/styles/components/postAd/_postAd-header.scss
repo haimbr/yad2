@@ -1,0 +1,43 @@
+.post-ad__header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+
+  .post-ad__header__right {
+    display: flex;
+    width: 250px;
+
+    img {
+      height: 50px;
+    }
+    p {
+      display: inline-block;
+      margin: auto;
+    }
+  }
+
+  .post-ad__header__left {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin: auto 30px;
+    }
+    div {
+      display: flex;
+      align-items: center;
+    }
+    img {
+      height: 30px;
+      margin: auto 10px;
+      margin-bottom: 5px;
+    }
+
+    .exit-button {
+      margin: auto 20px;
+      padding: 5px 15px;
+      border: 1px solid #ccc;
+      border-radius: 45px;
+    }
+  }
+}

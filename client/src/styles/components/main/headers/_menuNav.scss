@@ -1,0 +1,175 @@
+.header__menu__nav {
+  display: flex;
+  padding: 0 20px;
+  height: 69px;
+  border-bottom: 1px solid #eeeeee;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.header__menu__logo {
+  display: flex;
+  img {
+    cursor: pointer;
+    width: 90px;
+    height: 53px;
+    margin: auto;
+  }
+  .mobile__logo {
+    display: none;
+  }
+}
+
+.header-menu__small-screen {
+  display: none;
+
+  p {
+    font-size: 1.5rem;
+    color: #606060;
+  }
+
+  .menu-icon div {
+    transform: scale(0.5);
+    width: 35px;
+    border: 2px solid #757675;
+    background-color: #525452;
+    border-radius: 3px;
+    margin: 3px 0 3px 0;
+  }
+}
+
+.header-menu__item {
+  display: inline-block;
+  color: $myGray;
+  padding: 25px 20px;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:nth-child(1) {
+    background: #eeeeee;
+  }
+  &:hover {
+    background: #eeeeee52;
+  }
+}
+
+@media (max-width: 1330px) {
+  .header__menu__nav ul {
+    display: none;
+  }
+  .header-menu__small-screen {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 30px;
+    }
+  }
+}
+
+.header-menu__user {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+
+  div {
+    display: flex;
+    padding: 0px 20px;
+    margin: 0;
+    cursor: pointer;
+
+    &:hover {
+      background: #eeeeee52;
+    }
+  }
+
+  img {
+    width: auto;
+    height: 25px;
+    margin: auto;
+  }
+
+  .user-icon__img {
+    height: 35px;
+    margin-bottom: 9px;
+  }
+
+  button {
+    background: #0fca80;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    padding: 8px;
+    border-radius: 20px;
+    width: 200px;
+  }
+}
+
+@media (max-width: 1570px) {
+  .header-menu__user p {
+    display: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .header-menu__small-screen p {
+    display: none;
+  }
+
+  .header__menu__logo {
+    position: absolute;
+    left: calc(50% - 35px);
+
+    img {
+      height: 60px;
+      margin-top: 5px;
+    }
+  }
+
+  .header-menu__user {
+    div:nth-child(1),
+    div:nth-child(3) {
+      display: none;
+    }
+  }
+}
+
+
+@media (max-width: 550px){
+.header__container {
+  border: none;
+}
+
+
+
+.header__menu__logo {
+  height: 45px;
+
+  img:first-child {
+    display: none;
+  }
+  .mobile__logo {
+    display: inline-block;
+    height: 30px;
+    margin:auto
+  }
+}
+
+.header__menu__nav {
+  background: #ff7100;
+  height: 45px;
+}
+
+.header-menu__small-screen .menu-icon div {
+  border: 2px solid #ffffff;
+  background-color: #ffffff;
+}
+
+.header-menu__user{
+  display: none;
+}
+
+}

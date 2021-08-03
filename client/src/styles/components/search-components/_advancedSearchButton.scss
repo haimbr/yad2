@@ -1,0 +1,28 @@
+.advanced-search-button {
+  margin: 20px 5px 0 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 41px;
+  width: 145px;
+  background: #cccccc94;
+
+  .close-icon {
+    transition: all 0.5s;
+    transform: rotate(0deg);
+    margin-left: 8px;
+    font-size: 0.6rem;
+    font-weight: 800;
+    padding: 0px 3px;
+    border: 1px solid;
+    border-radius: 10px;
+    &::before {
+      content: "\002B";
+    }
+  }
+
+  .close-icon__open{
+    transform: rotate(45deg);
+  }
+}

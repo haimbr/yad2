@@ -1,0 +1,45 @@
+
+
+.rooms-dropdown {
+    display: flex;
+    position: absolute;
+    padding: 15px;
+    background: white;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  
+    .input-component{
+        margin: 0;
+    }
+
+    input {
+      width: 57px;
+    }
+
+
+  }
+
+.rooms-list{
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100px;
+    padding: 0;
+    background: white;
+    height: 320px;
+    position: absolute;
+    border: 1px solid #00000021;
+
+
+    li{
+        padding: 11px 10px;
+
+        &:hover{
+            background: #eeeeee;
+            cursor: pointer;
+        }
+    }
+
+    
+}

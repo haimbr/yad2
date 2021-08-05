@@ -29,11 +29,30 @@
 }
 
 .post-page {
+  position: relative;
   margin: 10px;
   width: 880px;
   padding: 10px;
   background: white;
   box-shadow: 0 2px 4px 0 rgba(12, 0, 51, 0.1);
+
+  .edit {
+    position: absolute;
+    left: 3%;
+    margin: 10px;
+    color: #0000006e;
+    height: 30px;
+    width: 80px;
+    border-radius: 20px;
+    background-color: #eee;
+    cursor: pointer;
+
+    .edit-icon {
+      transform: rotate(80deg);
+      display: inline-block;
+      padding: 4px;
+    }
+  }
 }
 
 .autocomplete-result__post-ad {
@@ -60,6 +79,24 @@
 .buttonsNextPreviousWrap {
   display: flex;
   justify-content: space-between;
+
+  span {
+    height: 33px;
+    padding: 0 25px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff7100;
+    border: 1px solid #ff7100;
+    font-size: 0.9rem;
+    cursor: pointer;
+
+    &:hover {
+      background: #ff7100;
+      color: white;
+    }
+  }
 }
 
 .post-page__header {
@@ -103,4 +140,20 @@
 .warning-message {
   color: red;
   display: block;
+}
+
+@media (max-width: 850px) {
+  .choose-sub-category {
+    padding-top: 20px;
+  }
+  .post-page {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 680px) {
+  .address-input .input-container {
+    max-width: 100%;
+  }
 }

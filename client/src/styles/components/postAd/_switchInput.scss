@@ -1,37 +1,37 @@
 .row-select {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 40px;
+  font-size: 0.9rem;
+
+  span {
     display: flex;
-    width: fit-content;
-    border: 1px solid black;
-    border-radius: 5px;
-    span {
-      height: 40px;
-      width: 40px;
-      display: inline-block;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-right: 1px solid black;
-      cursor: pointer;
-    }
-  
-    .option-selected {
-      background: #eee;
-      &:hover {
-        background: #ccc;
-      }
-    }
-  
-    .option {
-      &:hover {
-        color: #ff7100;
-      }
-    }
-    span:nth-child(1) {
-      border: none;
-      border-radius: 0 5px 5px 0;
-    }
-    span:nth-child(4) {
-      border-radius: 5px 0 0 5px;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  .option-selected {
+    background: #eee;
+    &:hover {
+      background: #ccc;
     }
   }
-  
+
+  .option {
+    &:hover {
+      color: #ff7100;
+    }
+  }
+  span:nth-child(1) {
+    border: none;
+    border-radius: 0 5px 5px 0;
+  }
+  span:nth-child(4) {
+    border-radius: 5px 0 0 5px;
+  }
+}

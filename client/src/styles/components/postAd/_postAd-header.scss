@@ -34,10 +34,20 @@
     }
 
     .exit-button {
+      white-space: nowrap;
       margin: auto 20px;
       padding: 5px 15px;
       border: 1px solid #ccc;
       border-radius: 45px;
     }
+  }
+}
+
+@media (max-width: 550px){
+  .post-ad__header .post-ad__header__right p{
+    display: none;
+  }
+  .post-ad__header .post-ad__header__left p{
+    display: none;
   }
 }

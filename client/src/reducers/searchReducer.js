@@ -13,7 +13,6 @@ export const searchDataInitialState = {
     apartmentSize: { min: "", max: "" },
     entryDate: "",
     freeText: "",
-    // onlyMoshavimAndKibbutzim: false
 }
 
 
@@ -87,11 +86,6 @@ const searchReducer = (searchData, action) => {
         case "CLEAR_SEARCH":
             return searchDataInitialState;
             
-        // case "SET_ONLY_MOSHAVIM_AND_KIBBUTZIM":
-        //     return {
-        //         ...searchData,
-        //         onlyMoshavimAndKibbutzim: action.data
-        //     };
         default:
             return { ...searchData };
     }

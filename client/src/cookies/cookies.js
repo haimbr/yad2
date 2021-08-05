@@ -4,7 +4,7 @@ const USER_DATA = "user-data";
 
 export const saveUserOnCookie = (userData) => {
     const jsonUserData = JSON.stringify(userData);
-    Cookies.set(USER_DATA, jsonUserData, { expires: 1 / 12, sameSite: "strict", secure: true });
+    Cookies.set(USER_DATA, jsonUserData, { expires: 6 / 12, sameSite: "strict", secure: true });
 };
 
 export const deleteUserFromCookie = () => {

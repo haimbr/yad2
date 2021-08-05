@@ -4,7 +4,12 @@ import { SearchContext } from '../../../context/SearchContext';
 import useOnClickOutsideClose from '../../../hooks/useOnClickOutsideClose';
 import DropDownInput from './DropDownInput'
 
-const SearchByRooms = () => {
+
+
+const mobileButtons = ["6-5", "5-4", "4-3", "3-2"].reverse();
+
+
+const SearchByRooms = ({ isMobileMode }) => {
     const ref = createRef();
     useOnClickOutsideClose(ref, () => setIsOpen(false));
 
@@ -20,11 +25,16 @@ const SearchByRooms = () => {
     }
 
     const onClickOpenRoomsList = (listType) => {
-        const isMaxRoomsClicked = listType === 'max'? true : false;
-        setIsMaxRoomsOpen(isMaxRoomsClicked && !isMaxRoomsOpen); 
+        const isMaxRoomsClicked = listType === 'max' ? true : false;
+        setIsMaxRoomsOpen(isMaxRoomsClicked && !isMaxRoomsOpen);
         setIsMinRoomsOpen(!isMaxRoomsClicked && !isMinRoomsOpen);
     }
 
+    const onMobileButtonsClicked = (values) => {
+        const min = values.split("-")[1];
+        const max = values.split("-")[0];
+        dispatchSearchData(setRoomsAction({ min, max }))
+    }
 
     const generateRoomsList = () => {
         const roomsList = [];
@@ -42,7 +52,7 @@ const SearchByRooms = () => {
                     className={"rooms__input"}
                     label={"חדרים"}
                     isOpen={isOpen}
-                    onClick={()=> setIsOpen(!isOpen)}
+                    onClick={() => setIsOpen(!isOpen)}
                     inputAttributes={{
                         placeholder: "חדרים",
                         disabled: "disabled",
@@ -50,19 +60,19 @@ const SearchByRooms = () => {
                     }}
                 />
             </div>
-            {isOpen && <div className="rooms-dropdown" >
+            {isOpen || isMobileMode && <div className="rooms-dropdown" >
                 <div className="">
                     <DropDownInput
                         className={"rooms__input"}
                         label={""}
                         isOpen={isMinRoomsOpen}
-                        onClick={()=> onClickOpenRoomsList("min")}
+                        onClick={() => onClickOpenRoomsList("min")}
                         inputAttributes={{
                             placeholder: searchData.rooms.min || "מ-",
                             disabled: "disabled",
                         }}
                     />
-                     {isMinRoomsOpen && <ul className="rooms-list">
+                    {isMinRoomsOpen && <ul className="rooms-list">
                         {generateRoomsList().map((num, index) => (
                             <li key={index} onClick={() => onClickRoomNumb(num, "min")}>{num}</li>
                         ))}
@@ -73,7 +83,7 @@ const SearchByRooms = () => {
                         className={"rooms__input"}
                         label={""}
                         isOpen={isMaxRoomsOpen}
-                        onClick={()=> onClickOpenRoomsList("max")}
+                        onClick={() => onClickOpenRoomsList("max")}
                         inputAttributes={{
                             placeholder: searchData.rooms.max || "עד-",
                             disabled: "disabled",
@@ -85,8 +95,12 @@ const SearchByRooms = () => {
                         ))}
                     </ul>}
                 </div>
+            </div>}
 
-
+            {isMobileMode && <div className="mobile__buttons">
+                {mobileButtons.map((item, index) => (
+                    <span key={index} onClick={() => onMobileButtonsClicked(item)}>{item} חדרים</span>
+                ))}
             </div>}
         </div>
     )

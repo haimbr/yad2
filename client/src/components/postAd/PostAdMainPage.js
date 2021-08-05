@@ -3,6 +3,8 @@ import AddressInputs from './pages/AddressInputs'
 import AboutTheProperty from './pages/AboutTheProperty';
 import PostAdHeader from './PostAdHeader'
 import PaymentAndDates from './pages/PaymentAndDates';
+import ContactPage from './pages/ContactPage';
+import PublishPage from './pages/PublishPage';
 
 
 const PostAd = () => {
@@ -22,6 +24,10 @@ const PostAd = () => {
         isValid: false,
         details: null
     })
+    const [contactDetailsState, setContactDetailsState] = useState({
+        isValid: false,
+        details: null
+    })
 
 
     return (
@@ -32,6 +38,10 @@ const PostAd = () => {
                     <div className="post-page__header">
                         <span className={addressState.isValid ? "valid-input": ""}><p>1</p></span>
                         <h3>כתובת הנכס</h3>
+                        <div className="edit">
+                            <b className="edit-icon">&#9998;</b>
+                            <b className="edit-אקסא">עריכה</b>
+                        </div>
                     </div>
                     <AddressInputs
                         setAddressState={setAddressState}
@@ -57,6 +67,24 @@ const PostAd = () => {
                         setPaymentAndDatesState={setPaymentAndDatesState}
                         setCurrentStage={setCurrentStage}
                     />
+                </div>
+                <div className="post-page">
+                    <div className="post-page__header">
+                        <span className={contactDetailsState.isValid ? "valid-input": ""}><p>4</p></span>
+                        <h3>פרטים ליצירת קשר</h3>
+                    </div>
+                    <ContactPage
+                        setContactDetailsState={setContactDetailsState}
+                        setCurrentStage={setCurrentStage}
+                    />
+                </div>
+
+                <div className="post-page">
+                    <div className="post-page__header">
+                        <span className={contactDetailsState.isValid ? "valid-input": ""}><p>5</p></span>
+                        <h3>סיום ופרסום</h3>
+                    </div>
+                    <PublishPage />
                 </div>
             </ul>
         </div>

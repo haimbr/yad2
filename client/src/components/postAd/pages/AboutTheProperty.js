@@ -76,19 +76,22 @@ const AboutTheProperty = ({ setCurrentStage, setAboutThePropertyState }) => {
                 <SwitchInput options={balconiesOptions} selectedOption={balconiesNum} setSelectedOption={setBalconiesNum} />
             </span>
 
-
-
-            <div className="publish-properties-container">
-                {properties.map((property, index) =>
-                    <div
-                        onClick={() => onPropertyClicked(property)}
-                        key={index}
-                        className={apartmentProperties.includes(property) ? 'publish-property-option chosen-property-option' : 'publish-property-option'} >
-                        {property}
-                        <FontAwesomeIcon className="property-icon" icon={propertiesIcons[index]} />
-                    </div>
-                )}
+            <div className="">
+                <p>מאפייני הנכס</p>
+                <div className="publish-properties-container">
+                    {properties.map((property, index) =>
+                        <div
+                            onClick={() => onPropertyClicked(property)}
+                            key={index}
+                            className={apartmentProperties.includes(property) ? 'publish-property-option chosen-property-option' : 'publish-property-option'} >
+                            {property}
+                            <FontAwesomeIcon className="property-icon" icon={propertiesIcons[index]} />
+                        </div>
+                    )}
+                </div>
             </div>
+
+
             <div className="textarea-container">
                 <p>מה חשוב לך שידעו על הנכס?</p>
                 <label>פרוט הנכס</label>

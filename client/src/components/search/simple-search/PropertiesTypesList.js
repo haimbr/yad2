@@ -7,12 +7,10 @@ import { setAllPropertiesAction } from '../../../actions/searchAction';
 import useOnClickOutsideClose from '../../../hooks/useOnClickOutsideClose';
 
 
-const PropertiesTypesList = () => {
+const PropertiesTypesList = ({ isDropdownOpen, setIsDropdownOpen }) => {
     const ref = createRef();
-    useOnClickOutsideClose(ref, () => setIsOpen(false));
+    useOnClickOutsideClose(ref, () => setIsDropdownOpen(false));
     const { searchData, dispatchSearchData } = useContext(SearchContext);
-    const [isOpen, setIsOpen] = useState(false);
-
 
 
     const getAllPropertiesStatus = () => {
@@ -36,7 +34,7 @@ const PropertiesTypesList = () => {
 
     const onClickSelect = (event) => {
         event.stopPropagation();
-        setIsOpen(false)
+        setIsDropdownOpen(false)
     }
 
     return (
@@ -44,8 +42,8 @@ const PropertiesTypesList = () => {
             <DropDownInput
                 className={"type-of-property__input"}
                 label={"סוג נכס"}
-                isOpen={isOpen}
-                onClick={() => setIsOpen(!isOpen)}
+                isOpen={isDropdownOpen}
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 inputAttributes={{
                     placeholder: "בחרו סוגי נכסים",
                     disabled: "disabled",
@@ -53,7 +51,7 @@ const PropertiesTypesList = () => {
                 }}
             />
             {
-                isOpen &&
+                isDropdownOpen &&
                 <div className="dropdown_content" >
                     <ul>
                         <div onClick={onClickAllPropertyOptions}>
@@ -64,6 +62,7 @@ const PropertiesTypesList = () => {
                                 <span>כל סוגי הנכסים</span>
                             </div>
                         </div>
+                        <div className="mobile-clear" onClick={() => dispatchSearchData(setAllPropertiesAction(null))}>איפוס</div>
                         <DropDownCheckBox propertiesArr={apartmentsArr} arrName={"apartmentsArr"} header={"דירות"} />
                         <DropDownCheckBox propertiesArr={housesArr} arrName={"housesArr"} header={"בתים"} />
                         <DropDownCheckBox propertiesArr={othersArr} arrName={"othersArr"} header={"סוגים נוספים"} />

@@ -1,0 +1,148 @@
+.contact-details {
+  margin: 10px 30px;
+
+  .contact-details__container {
+    margin: 10px 30px;
+  }
+
+  .contact-details__inputs {
+    display: flex;
+    align-items: flex-end;
+    margin: 0 0 40px 0;
+    flex-wrap: wrap;
+  }
+
+  .contact-name {
+    width: 240px;
+  }
+
+  .phoneNumber__input {
+    width: 160px;
+  }
+
+  .startTelNum__input {
+    width: 90px;
+  }
+
+  .valid-phonNumber {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 40px;
+    width: 162px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #4dd8a1;
+    border: 1px solid #4dd8a1;
+    background-color: #dff7ed;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #4dd8a1;
+      color: white;
+    }
+  }
+  .invalid-PhonNumber {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 40px;
+    width: 162px;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #ff7100;
+    border: 1px solid #ff7100;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ff7100;
+      color: white;
+    }
+  }
+  .v-icon {
+    margin: auto 18px;
+    &:after {
+      content: "\2713";
+      font-weight: bold;
+    }
+  }
+
+  .contact-details__inputs > span {
+    margin-left: 13px;
+    margin-top: 20px;
+  }
+
+  .checkbox-element {
+    margin-bottom: 40px;
+  }
+
+  .warning-message {
+    position: absolute;
+  }
+
+  .checkbox-element b {
+    color: #ff7100;
+    font-weight: 100;
+  }
+
+  .buttonsNextPreviousWrap {
+    justify-content: flex-end;
+  }
+
+  .trash-icon {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    font-size: 0.9rem;
+    width: 60px;
+    justify-content: space-evenly;
+    color: #606060;
+    cursor: pointer;
+
+    &:hover {
+      color: #ff7100;
+    }
+  }
+
+  .add-contact {
+    display: flex;
+    font-size: 0.82rem;
+    color: #ff7100;
+    cursor: pointer;
+    
+    .open-icon {
+        margin-left: 8px;
+        font-size: 0.8rem;
+        font-weight: 800;
+        height: 15px;
+        border: 1px solid;
+        border-radius: 10px;
+        display: flex;
+        width: 15px;
+        justify-content: center;
+        align-items: center;
+     
+
+      &:before {
+        content: "\002B";
+      }
+    }
+  }
+
+  @media (max-width: 680px){
+    .contact-name{
+      flex-grow: 1;
+      margin-left: 0 !important;
+    }
+    .phoneNumber__input{
+      width: 60%;
+    }
+    .startTelNum__input{
+      flex-grow: 1;
+      margin-left: 0 !important;
+    }
+  }
+}

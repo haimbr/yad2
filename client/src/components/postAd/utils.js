@@ -16,7 +16,6 @@ const splitAndMakeSearchValueBold = (searchValue, autoCompleteResult, city) => {
 
 export const searchAutoCompleteCity = async (searchValue, city) => {
     const autoCompleteURL = "https://es.govmap.gov.il/TldSearch/api/AutoComplete";
-
     try {
         const res = await axios.get(autoCompleteURL, {
             params: {

@@ -6,38 +6,53 @@ import PropertiesTypesList from './simple-search/PropertiesTypesList';
 import SearchByPrice from './simple-search/SearchByPrice';
 import SearchByRooms from './simple-search/SearchByRooms';
 import SearchRegionInput from './simple-search/SearchRegionInput';
-// import SimpleSearch from './simple-search/SimpleSearch.component';
 import SearchButton from './simple-search/SearchButton';
+import MobileSearchHeader from './MobileSearchHeader';
 
 const SearchPage = () => {
 
     const [isAdvancedSearchOpen, setIsAdvancedSearchOpen] = useState(false);
+    const [isMobileMode, setIsMobileMode] = useState(false);
+    const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(true);
+    const [isPropertyTypeDropdownOpen, setIsPropertyTypeDropdownOpen] = useState(false);
 
     return (
-        <div className="search-component">
+        <div className={isMobileMode && !isMobileSearchOpen ? "search-container__mobile" : ""}>
             <SearchContextProvider>
-                <div className="simple-search__component">
-                    <div className="header_section">
-                        <h3>איזה נכס ל<b>השכרה</b> תרצו לחפש?</h3>
-                        <button>
-                            <img src="./images/bell-icon3.png" alt="bell-icon" />
-                            <span >קבלו התראה במייל על החיפוש</span>
-                        </button>
+                {<MobileSearchHeader
+                    setIsMobileMode={setIsMobileMode}
+                    isMobileSearchOpen={isMobileSearchOpen}
+                    setIsMobileSearchOpen={setIsMobileSearchOpen}
+                    setIsDropdownOpen={setIsPropertyTypeDropdownOpen}
+                    isDropdownOpen={isPropertyTypeDropdownOpen}
+                />}
+
+                <div className={`search-component ${isMobileMode ? "search-mobile-mode" : ""}`}>
+
+                    <div className="simple-search__component">
+                        <div className="header_section">
+                            <h3>איזה נכס ל<b>השכרה</b> תרצו לחפש?</h3>
+                            <button>
+                                <img src="./images/bell-icon3.png" alt="bell-icon" />
+                                <span >קבלו התראה במייל על החיפוש</span>
+                            </button>
+                        </div>
+                        <div className="form-container">
+                            <form className="simple-search">
+                                <SearchRegionInput />
+                                <PropertiesTypesList isDropdownOpen={isPropertyTypeDropdownOpen} setIsDropdownOpen={setIsPropertyTypeDropdownOpen} />
+                                <SearchByRooms isMobileMode={isMobileMode} />
+                                <SearchByPrice isMobileMode={isMobileMode} />
+                                <AdvancedSearchButton isAdvancedSearchOpen={isAdvancedSearchOpen} setIsAdvancedSearchOpen={setIsAdvancedSearchOpen} />
+                                <SearchButton />
+                            </form>
+                        </div>
                     </div>
-                    <div className="form-container">
-                        <form className="simple-search">
-                            <SearchRegionInput />
-                            <PropertiesTypesList />
-                            <SearchByRooms />
-                            <SearchByPrice />
-                            <AdvancedSearchButton isAdvancedSearchOpen={isAdvancedSearchOpen} setIsAdvancedSearchOpen={setIsAdvancedSearchOpen} />
-                            <SearchButton />
-                        </form>
-                    </div>
+
+                    {isAdvancedSearchOpen && <AdvancedSearch />}
+
+
                 </div>
-
-                {isAdvancedSearchOpen && <AdvancedSearch />}
-
             </SearchContextProvider>
         </div>
     )

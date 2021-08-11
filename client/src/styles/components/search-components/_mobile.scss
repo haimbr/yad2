@@ -233,6 +233,7 @@
 .search-mobile-mode {
   display: flex;
   margin: 10px 18px;
+  flex-direction: column;
 
   .autocomplete__container,
   .type-of-property__input,
@@ -257,6 +258,7 @@
     width: 100vw;
     left: 0;
     border: none;
+    z-index: 100;
   }
   .mobile-clear {
     display: flex !important;
@@ -281,6 +283,7 @@
     align-items: center;
     background: white;
     border-top: 1px solid #cccccc52;
+    z-index: 10;
 
     .search-button {
       width: 90%;
@@ -366,9 +369,47 @@
     position: absolute;
     display: flex;
     bottom: 90px;
+    background: none;
+    right: 0;
+    color: #ff7100;
+
+    .close-icon {
+      border: none;
+    }
   }
 
-  .form-container{
+  .form-container {
     position: relative;
+  }
+
+  .advanced-search__component {
+    width: 100vw;
+    top: 535px;
+  }
+
+  .apartment-characteristics ul {
+    font-size: 0.9rem;
+    justify-content: space-between;
+  }
+
+  .apartment-characteristics ul > div {
+    width: 100px;
+  }
+
+  .advanced-search__component .free-text input {
+    width: 70vw;
+  }
+
+  .advanced-search__component .free-text {
+    margin-bottom: 50px;
+    margin-top: 0;
+  }
+
+  .advanced-search__component .advanced-search-bottom .clear-search {
+    display: none;
+  }
+
+  .search-by-entry-date{
+    flex-direction: column;
   }
 }

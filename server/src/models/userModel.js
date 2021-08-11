@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+
 
 const userSchema = new mongoose.Schema(
     {
@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema(
             required: true,
             trim: true,
         },
-        ads: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Ad' }],
+        ads: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Apartment' }],
     },
     {
         timestamps: true,
@@ -45,8 +45,7 @@ const userSchema = new mongoose.Schema(
 );
 
 
-//             phonNumber: userData.phonNumber,
-//             birthDate: userData.birthDate,
+
 
 // hash password before saving
 userSchema.pre("save", async function (next) {

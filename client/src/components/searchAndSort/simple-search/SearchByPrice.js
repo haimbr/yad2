@@ -31,6 +31,7 @@ const SearchByPrice = ({ isMobileMode }) => {
                 return dispatchSearchData(setPriceAction({ min: 5000, max: 6000 }));
             case 4:
                 return dispatchSearchData(setPriceAction({ min: 6000, max: 7500 }));
+            default: return;
         }
     }
 

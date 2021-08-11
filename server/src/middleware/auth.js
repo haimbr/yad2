@@ -1,14 +1,14 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-const Token = require("../models/tokenModel");
+const { getTokenFromRedis } = require("../utils/redis-utils");
+
 
 const auth = async (req, res, next) => {
-    try {
+    try { 
         const token = req.header("Authorization").replace("Bearer ", "");
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const user = await User.findOne({ _id: decoded._id });
-        const isTokenExist = await Token.findOne({ token });
-
+        const isTokenExist = await getTokenFromRedis(token);
         if (!user || !isTokenExist) {
             throw new Error();
         }
@@ -20,5 +20,6 @@ const auth = async (req, res, next) => {
         res.status(401).send({ error: "Please authenticate." });
     }
 };
+
 
 module.exports = auth;

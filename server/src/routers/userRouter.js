@@ -1,8 +1,5 @@
 const express = require("express");
-// const bcrypt = require("bcryptjs");
 const User = require("../models/userModel");
-// const Token = require("../models/tokenModel");
-// const auth = require("../middleware/auth");
 const generateAuthToken = require('../utils/jwt');
 const { getTokenFromRedis, saveTokenInRedis, deleteTokenInRedis } = require('../utils/redis-utils')
 const router = new express.Router();
@@ -15,7 +12,7 @@ router.post("/users/signup", async (req, res) => {
         await user.save();
         const token = generateAuthToken(user);
         await saveTokenInRedis(token);
-        res.status(201).send({ user , token});
+        res.status(201).send({ user, token });
     } catch (err) {
         console.log(err);
         res.status(400).send({
@@ -28,11 +25,10 @@ router.post("/users/signup", async (req, res) => {
 
 
 router.post("/users/isEmailExists", async (req, res) => {
-    console.log(req.cookies.username);
     const email = req.body.email;
     try {
         const user = await User.findOne({ email });
-        if(user) res.status(201).send({ isEmailExists: true });
+        if (user) res.status(201).send({ isEmailExists: true });
         else res.status(201).send({ isEmailExists: false });
     } catch (err) {
         res.status(400).send({
@@ -63,10 +59,8 @@ router.post("/users/login", async (req, res) => {
 router.post("/users/logout", async (req, res) => {
     try {
         const token = req.header("Authorization").replace("Bearer ", "");
-        console.log(token);
-        let p = await deleteTokenInRedis(token);
-        console.log(p);
-        res.send("Logout successfully");    
+        await deleteTokenInRedis(token);
+        res.send("Logout successfully");
     } catch (err) {
         res.status(500).send();
     }

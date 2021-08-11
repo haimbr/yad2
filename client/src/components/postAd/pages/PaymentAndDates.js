@@ -14,7 +14,7 @@ const currentDate = new Date().toISOString().split('T')[0];
 
 
 
-const PaymentAndDates = ({ setCurrentStage, setAboutThePropertyState }) => {
+const PaymentAndDates = ({ setCurrentStage, setPaymentAndDatesState }) => {
 
     const [isAvailableImmediately, setIsAvailableImmediately] = useState(false);
     const [warningMessages, setWarningMessages] = useState([]);
@@ -33,31 +33,31 @@ const PaymentAndDates = ({ setCurrentStage, setAboutThePropertyState }) => {
     const [paymentsNum, setPaymentsNum] = useState("");
     const [houseCommittee, setHouseCommittee] = useState("");
     const [propertyTax, setPropertyTax] = useState("");
-    const [meterNum, setMeterNum] = useState("");
+    const [size, setSize] = useState("");
     const [price, setPrice] = useState("");
     const [entryDate, setEntryDate] = useState("");
-    const [isLongTerm, setIsLongTerm] = useState("");
+    const [isLongTerm, setIsLongTerm] = useState(false);
 
     const onClickNext = () => {
-        const newWarningMessages = [new Array(3)];
+        const newWarningMessages = new Array(3);
         if (!paymentsNum) newWarningMessages[0] = "שדה חובה מספר תשלומים";
-        if (!meterNum) newWarningMessages[1] = 'שדה חובה גודל במ"ר סך הכל';
+        if (!size) newWarningMessages[1] = 'שדה חובה גודל במ"ר סך הכל';
         if (!entryDate) newWarningMessages[2] = "שדה חובה";
 
-        if (newWarningMessages.every(item => item === null)) {
-            setAboutThePropertyState({
+        if (newWarningMessages.every(item => item === null)){
+            setPaymentAndDatesState({
                 isValid: true,
                 details: {
                     paymentsNum,
                     houseCommittee,
                     propertyTax,
-                    meterNum,
+                    size,
                     price,
                     entryDate,
                     isLongTerm
                 }
             })
-            setCurrentStage(2);
+            setCurrentStage(4);
         } else {
             setWarningMessages(newWarningMessages);
         }
@@ -85,9 +85,9 @@ const PaymentAndDates = ({ setCurrentStage, setAboutThePropertyState }) => {
 
             <span className="">
                 <label>מ"ר בנוי</label>
-                <input className="simple-search-input" type="search" placeholder='כמה מ"ר יש בנכס' value={meterNum}
-                    onChange={(e) => setMeterNum(isNumber(e.target.value))} />
-                     {!meterNum && <span className="warning-message">{warningMessages[1]}</span>}
+                <input className="simple-search-input" type="search" placeholder='כמה מ"ר יש בנכס' value={size}
+                    onChange={(e) => setSize(isNumber(e.target.value))} />
+                     {!size && <span className="warning-message">{warningMessages[1]}</span>}
             </span>
 
             <span className="">
@@ -126,7 +126,7 @@ const PaymentAndDates = ({ setCurrentStage, setAboutThePropertyState }) => {
                 </div>
             </span>
             <div className="buttonsNextPreviousWrap">
-                <span onClick={() => setCurrentStage(1)} >חזרה</span>
+                <span onClick={() => setCurrentStage(2)} >חזרה</span>
                 <span  onClick={onClickNext}>להמשיך לשלב הבא</span>
             </div>
         </div>

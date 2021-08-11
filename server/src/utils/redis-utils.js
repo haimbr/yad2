@@ -8,6 +8,7 @@ const getTokenFromRedis = async (token) => {
         return JSON.parse(await redisClient.getAsync(token));
     } catch (err) {
         console.log(err);
+        return null;
     }
 }
 

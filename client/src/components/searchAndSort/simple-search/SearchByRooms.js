@@ -60,7 +60,7 @@ const SearchByRooms = ({ isMobileMode }) => {
                     }}
                 />
             </div>
-            {isOpen || isMobileMode && <div className="rooms-dropdown" >
+            {(isOpen || isMobileMode) && <div className="rooms-dropdown" >
                 <div className="">
                     <DropDownInput
                         className={"rooms__input"}

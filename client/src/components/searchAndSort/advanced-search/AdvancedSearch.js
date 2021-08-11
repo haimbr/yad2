@@ -8,7 +8,7 @@ import { SearchContext } from '../../../context/SearchContext';
 import { clearSearchAction, setFreeTextAction } from '../../../actions/searchAction';
 import SearchButton from './../simple-search/SearchButton';
 
-const AdvancedSearch = () => {
+const AdvancedSearch = ({ setAdsArr, setIsNoResult, setResultsCount, setIsAdvancedSearchOpen }) => {
 
 
     const { dispatchSearchData } = useContext(SearchContext);
@@ -53,7 +53,7 @@ const AdvancedSearch = () => {
                 </div>
             </ul>
             <div className="advanced-search-bottom">
-                <SearchButton />
+                <SearchButton setAdsArr={setAdsArr} setIsNoResult={setIsNoResult} setResultsCount={setResultsCount} setIsAdvancedSearchOpen={setIsAdvancedSearchOpen} />
                 <span className="clear-search" onClick={onClearClicked}>נקה</span>
             </div>
         </div>

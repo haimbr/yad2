@@ -1,5 +1,9 @@
 .aboutTheProperty-container {
   margin: 10px 30px;
+
+  .custom-select{
+    width: 200px;
+  }
 }
 
 .aboutTheProperty-container > span {
@@ -85,6 +89,8 @@ textarea {
 }
 
 @media (max-width: 680px){
+  .aboutTheProperty-container .custom-select,
+  .aboutTheProperty-container .row-select,
   textarea{
     width: 100%;
   }

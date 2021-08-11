@@ -1,0 +1,83 @@
+.Ad-body_container {
+  position: absolute;
+  width: 100%;
+  max-width: 698px;
+  margin: 0 !important;
+  padding: 0;
+  background: white;
+  top: 137px;
+  z-index: 1;
+  display: flex;
+  border-bottom: 1px solid #00000036;
+
+  .placeHolder {
+    width: 480px;
+    height: 400px;
+    background: #f0f0f0;
+    margin: 0;
+  }
+  .ad-body__content {
+    margin: 10px 18px;
+
+    p {
+      margin: 0;
+    }
+
+    .apartment-properties__container {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+
+      span:first-child {
+        font-size: 0.85rem;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+
+      .apartment-properties {
+        display: flex;
+        flex-wrap: wrap;
+        span {
+          color: #00000061;
+          width: 110px;
+          margin: 10px;
+          font-size: 0.9rem;
+          font-weight: 100;
+          svg {
+            margin-left: 7px;
+            font-size: 1rem;
+          }
+        }
+        .bold{
+          color: black;
+        }
+      }
+    }
+
+    .apartment__details {
+      margin: 15px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      span {
+        margin: 4px 0;
+        font-size: 0.8rem;
+        width: 225px;
+        b {
+          margin: 8px;
+        }
+      }
+    }
+
+    .property__desc {
+      p {
+        font-size: 0.95rem;
+      }
+      p:first-child {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin: 5px 0;
+      }
+    }
+  }
+}

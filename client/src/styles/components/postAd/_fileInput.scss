@@ -1,0 +1,126 @@
+.files-page__container {
+  margin: 10px 30px;
+
+  .main-image__container {
+    p {
+      display: inline-block !important;
+      position: absolute;
+      top: -10px;
+      margin: 0;
+      padding: 5px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9rem;
+      background: #eee;
+    }
+    .input-container {
+      border: 10px solid #eee !important;
+
+      img {
+        padding-top: 15px !important;
+      }
+
+      span {
+        margin-top: 20px !important;
+      }
+    }
+  }
+  .file-input__container {
+    p {
+      display: none;
+    }
+    .input-container {
+      position: relative;
+      height: 166px;
+      width: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 40px;
+      margin-top: 30px;
+      border: 2px dashed #9d9d9d;
+      border-radius: 5px;
+
+      img {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      }
+
+      &:hover {
+        img {
+          display: none;
+        }
+      }
+
+      .icons__container {
+        span {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 28px;
+          width: 28px;
+          background: #a8afa8;
+          color: #00000094;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 17px;
+          opacity: 0.75;
+          margin: 5px;
+          cursor: pointer;
+        }
+
+        span:nth-child(2) {
+          left: 0;
+          right: auto;
+        }
+      }
+    }
+    .video-upload-message{
+        text-align: center;
+    }
+    input {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      opacity: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+
+  h3{
+      margin-right: 40px;
+  }
+  .main-image {
+    display: flex;
+    margin-bottom: 30px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #ccc;
+    flex-wrap: wrap;
+  }
+
+  .rest-images {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .chose-file-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #00000061;
+
+    span {
+      font-size: 1rem;
+    }
+  }
+}

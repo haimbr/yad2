@@ -31,27 +31,25 @@ const ContactPage = ({ setContactDetailsState, setCurrentStage }) => {
     const [warningMessages, setWarningMessages] = useState(new Array(6));
 
     const validateInputs = () => {
-        const newWarningMessages = [new Array(4)];
+        const newWarningMessages = new Array(4);
         if (!publisherName) newWarningMessages[0] = "שדה חובה שם איש קשר";
         if (!isPhoneNumberValid) newWarningMessages[1] = "מספר הטלפון אינו תקין";
         if (isNewContactInputOpen && !isNewPhoneNumberValid) newWarningMessages[2] = "מספר הטלפון אינו תקין";
         if (!isUserApprovedPolicy) newWarningMessages[3] = "חובה לסמן אם תרצו להמשיך";
 
         if (newWarningMessages.every(item => item === null)) {
-            setContactDetailsState({
-                isValid: true,
-                details: {
-                    mainContact: {
-                        name: publisherName,
-                        phonNumber: startTelNum + telNum,
-                        email: email,
-                    },
-                    secondaryContact: !isNewContactInputOpen ? undefined : {
-                        name: newContactName,
-                        phonNumber: newContactStartTelNum + newContactTelNum,
-                    }
+            const contacts = [
+                {
+                    name: publisherName,
+                    phonNumber: startTelNum + telNum,
+                    email: email,
+                },
+                !isNewContactInputOpen ? null : {
+                    name: newContactName,
+                    phonNumber: newContactStartTelNum + newContactTelNum,
                 }
-            });
+            ].filter(index => index != null);
+            setContactDetailsState({ isValid: true, details: contacts });
             setCurrentStage(6);
         } else {
             setWarningMessages(newWarningMessages);
@@ -173,7 +171,7 @@ const ContactPage = ({ setContactDetailsState, setCurrentStage }) => {
 
 
             <div className="buttonsNextPreviousWrap">
-                <span className="" onClick={validateInputs}>המשך לבחירת מסלול</span>
+                <span onClick={validateInputs}>המשך לבחירת מסלול</span>
             </div>
         </div>
     )

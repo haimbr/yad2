@@ -31,6 +31,7 @@
 
 .login-active {
   opacity: 1;
+  z-index: 10;
   .login-container__container {
     transition: all 0.5s;
     transform: scale(1);

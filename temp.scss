@@ -1,97 +1,29 @@
-.mobile-start-search {
-  display: none;
-}
-
-@media (max-width: 700px) {
-  .mobile-start-search {
-    display: flex;
-    height: 50px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    margin: 10px;
-    color: #00000082;
-    box-shadow: 0 2px 6px 0 #00000040;
-
-    div {
-      display: flex;
-      align-items: center;
-    }
-
-    p {
-      color: #ff7100;
-    }
-
-    .search-icon {
-      transform: rotate(315deg);
-      display: inline-block;
-      font-size: 1.5rem;
-      padding: 5px;
-    }
-  }
-}
-
-.mobile-search__container {
-  .back-button {
-    position: absolute;
-    color: white;
-    top: 12px;
-    left: 12px;
-    &:after {
-      content: "\276F";
-    }
-  }
-
-  .categories-select {
-    height: 72px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    box-shadow: 0 3px 10px 2px #00000026;
-
-    span:nth-child(2) {
-      background: #ff7100;
-      color: white;
-    }
-
-    span {
-      padding: 5px 12px;
-      background: #efeaea;
-      margin: 10px;
-      border-radius: 4px;
-    }
-  }
-  .trash-icon {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    span {
-      display: flex;
-      align-items: center;
-      padding: 7px 18px;
-      background: red;
-      border-radius: 38px;
-      margin-top: 5px;
-      margin-left: 10px;
-    }
-
-    p {
-      margin: 0;
-      margin-right: 13px;
-    }
-  }
-}
-
-.search-desktop-mode {
+.sort-ad__container {
+  max-width: 700px;
+  margin: auto;
   display: flex;
-}
 
-.not-active {
-  display: none;
-}
+  .sort-by {
+    display: flex;
+    align-items: center;
+    position: relative;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 34px;
+      width: 150px;
+      border: 1px solid;
+    }
 
-.search-mobile-mode {
+    .sort-dropdown {
+      position: absolute;
+      top: 35px;
+      z-index: 10;
+      background: white;
+      border: 1px solid;
+      width: calc(100% + 50px);
+      padding: 15px;
+    }
+  }
 }

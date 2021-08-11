@@ -1,4 +1,4 @@
-import React, { createRef, useContext, useState } from 'react'
+import React, { createRef, useContext } from 'react'
 import DropDownInput from './DropDownInput';
 import DropDownCheckBox from './DropDownCheckBox';
 import { apartmentsArr, housesArr, othersArr } from '../data/propertiesTypeData';

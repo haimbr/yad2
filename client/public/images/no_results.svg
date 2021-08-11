@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="79px" height="41px" viewBox="0 0 79 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Habub</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Habub">
+            <g id="Group-16">
+                <path d="M78.3671428,34 L7.5387852,34 C5.92437047,21.0219099 9.42896428,9.71749191 18.1455091,3.98492558 C33.3350504,-6.00857442 58.5899849,4.69505058 74.5568649,27.8905506 C75.9425658,29.9035941 77.2127643,31.9445712 78.3671428,34 Z" id="Combined-Shape" fill="#FF7100"></path>
+                <ellipse id="Oval-5-Copy-8" fill="#FFFFFF" transform="translate(35.000000, 22.164713) scale(-1, 1) translate(-35.000000, -22.164713) " cx="35" cy="22.1647128" rx="2" ry="4.93033779"></ellipse>
+                <ellipse id="Oval-5-Copy-9" fill="#FFFFFF" transform="translate(20.000000, 22.164713) scale(-1, 1) translate(-20.000000, -22.164713) " cx="20" cy="22.1647128" rx="2" ry="4.93033779"></ellipse>
+                <path d="M57.2117647,38.8941176 C58.8588235,38.8941176 61,37.8809637 61,35.9294118 C61,32.6546881 57.8659932,30 54,30 C50.1340068,30 47,32.6546881 47,35.9294118 C47,37.9171461 49.1411765,39.3882353 51.1176471,38.8941176 C51.7764706,41.0352941 56.2235294,41.2 57.2117647,38.8941176 Z" id="Oval-6-Copy-35" fill="#C85B04" transform="translate(54.000000, 35.281168) scale(-1, 1) translate(-54.000000, -35.281168) "></path>
+                <path d="M10.2117647,38.8941176 C11.8588235,38.8941176 14,37.8809637 14,35.9294118 C14,32.6546881 10.8659932,30 7,30 C3.13400675,30 0,32.6546881 0,35.9294118 C0,37.9171461 2.14117647,39.3882353 4.11764706,38.8941176 C4.77647059,41.0352941 9.22352941,41.2 10.2117647,38.8941176 Z" id="Oval-6-Copy-36" fill="#C85B04" transform="translate(7.000000, 35.281168) scale(-1, 1) translate(-7.000000, -35.281168) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

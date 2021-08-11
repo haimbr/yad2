@@ -7,9 +7,7 @@ import { logOut } from './../../login/utils';
 
 function MenuNav({ setDisplayLogin, setDisplayMobileNav }) {
 
-
     const { userData, dispatchUserData } = useContext(UserContext);
-
 
     const onClickLogout = (event) => {
         event.stopPropagation();
@@ -20,19 +18,19 @@ function MenuNav({ setDisplayLogin, setDisplayMobileNav }) {
 
 
     const onClickUserIcon = () => {
-        if(userData.user) return;
+        if (userData.user) return;
         setDisplayLogin(true);
     }
 
 
     const onClickPostNewAd = () => {
-        if(!userData.user){
+        if (!userData.user) {
             setDisplayLogin(true);
-        }else{
+        } else {
 
         }
     }
-    
+
 
     return (
         <div className="header__menu__nav">
@@ -67,13 +65,16 @@ function MenuNav({ setDisplayLogin, setDisplayMobileNav }) {
                     <img src="./images/like-icon.png" alt="like-icon"></img>
                     <p>מודעות שאהבתי</p>
                 </div>
-                <div onClick={onClickUserIcon}>
+                <div className="user-data__container" >
                     {userData.user ?
-                        <h4>{userData.user.firstName}</h4> :
-                        <><img className="user-icon__img" src="./images/user-icon.png" alt="user-icon" /><p>התחברות</p></>
+                        <h4 >{userData.user.firstName}</h4> :
+                        <>
+                            <img className="user-icon__img" onClick={onClickUserIcon} src="./images/user-icon.png" alt="user-icon" />
+                            <p>התחברות</p>
+                        </>
                     }
                     {userData.user &&
-                        <div>
+                        <div className="user-data">
                             <h5>איזור אישי</h5>
                             <h5>השוואת רכבים</h5>
                             <h5>חיפושים אחרונים</h5>

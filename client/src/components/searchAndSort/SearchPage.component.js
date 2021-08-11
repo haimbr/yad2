@@ -8,8 +8,10 @@ import SearchByRooms from './simple-search/SearchByRooms';
 import SearchRegionInput from './simple-search/SearchRegionInput';
 import SearchButton from './simple-search/SearchButton';
 import MobileSearchHeader from './MobileSearchHeader';
+import SortAds from './sort/SortAds';
 
-const SearchPage = () => {
+
+const SearchPage = ({ setAdsArr, setIsNoResult, resultsCount, setResultsCount }) => {
 
     const [isAdvancedSearchOpen, setIsAdvancedSearchOpen] = useState(false);
     const [isMobileMode, setIsMobileMode] = useState(false);
@@ -44,15 +46,20 @@ const SearchPage = () => {
                                 <SearchByRooms isMobileMode={isMobileMode} />
                                 <SearchByPrice isMobileMode={isMobileMode} />
                                 <AdvancedSearchButton isAdvancedSearchOpen={isAdvancedSearchOpen} setIsAdvancedSearchOpen={setIsAdvancedSearchOpen} />
-                                <SearchButton />
+                                <SearchButton setAdsArr={setAdsArr} setIsNoResult={setIsNoResult} setResultsCount={setResultsCount} setIsAdvancedSearchOpen={setIsAdvancedSearchOpen}/>
                             </form>
                         </div>
                     </div>
 
-                    {isAdvancedSearchOpen && <AdvancedSearch />}
+                    {isAdvancedSearchOpen && <AdvancedSearch setAdsArr={setAdsArr} setIsNoResult={setIsNoResult} setResultsCount={setResultsCount} setIsAdvancedSearchOpen={setIsAdvancedSearchOpen}/>}
 
 
                 </div>
+                <div className="apartment-page-header">
+                    <h1>נדל"ן להשכרה</h1>
+                    {resultsCount && <p>מציג {resultsCount} מודעות</p>}
+                </div>
+                <SortAds setAdsArr={setAdsArr} setIsNoResult={setIsNoResult} setResultsCount={setResultsCount} />
             </SearchContextProvider>
         </div>
     )

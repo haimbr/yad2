@@ -16,7 +16,7 @@ const MobileSearchHeader = ({ setIsMobileMode, isMobileSearchOpen, setIsMobileSe
     const [addressInputState, setAddressInputState] = useState("");
     const [autoCompleteResults, setAutoCompleteResults] = useState("");
     const [isAutoCompleteOpen, setIsAutoCompleteOpen] = useState(false);
-    const { searchData, dispatchSearchData } = useContext(SearchContext);
+    const { dispatchSearchData } = useContext(SearchContext);
 
     const onSearchCity = async (event) => {
         const searchValue = event.target.value;

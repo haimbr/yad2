@@ -60,7 +60,7 @@
     }
 
     .autocomplete-results {
-      z-index: 10;
+      z-index: 101;
       position: absolute;
       min-width: 450px;
       background: white;
@@ -134,7 +134,7 @@
 .dropdown_content {
   position: absolute;
   cursor: pointer;
-  z-index: 10;
+  z-index: 101;
   .dropdown-main-header {
     background: #f9f9f9;
     margin-bottom: 15px;
@@ -215,8 +215,31 @@
   
 }
 
+.no_results__container{
+  width: 500px;
+  margin: auto;
+  margin-bottom: 300px;
+
+  img{
+    position: relative;
+    top: 11px;
+    right: 50px;
+  }
+
+  div{
+    margin: 0 auto;
+    box-shadow: 0 1px 10px 0 rgba(0 ,0 ,0 ,0.2);
+    padding: 10px;
+
+    p{
+      margin: 10px;
+    }
+  }
+}
+
 @media (max-width: 820px) and (min-width: 700px) {
   .search-component {
+    z-index: 1;
     transform: scale(0.8);
   }
 }

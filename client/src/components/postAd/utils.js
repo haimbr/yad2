@@ -38,5 +38,30 @@ export const searchAutoCompleteCity = async (searchValue, city) => {
 }
 
 
+export const sendNewOdToServer = async (token, newOd, files) => {
 
+    const newOdUrl = "http://localhost:3030/apartments/publish";
+    const filesUrl = "http://localhost:3030/apartments/publish/add-files";
+    try {
+        const apartmentId = await axios.post(newOdUrl, newOd, {
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        });
+        console.log(apartmentId.data);
+        console.log(apartmentId.data.apartmentId);
+        await axios.post(filesUrl, files,{
+            params: {
+                apartmentId: apartmentId.data,
+            },
+            headers: {
+                'content-type': 'multipart/form-data',
+                Authorization: "Bearer " + token
+            }
+        });                 
+        return apartmentId;
+    } catch (err) {
+        console.log("err", err.message);
+    }
+}
 

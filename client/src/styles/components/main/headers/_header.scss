@@ -2,3 +2,15 @@
     border-top: 5px solid #ff7100;
     // margin-bottom: 1000px;
 }
+
+.user-message{
+    position: fixed;
+    background: white;
+    width: 74%;
+    text-align: center;
+    font-size: 1.3rem;
+    top: 15px;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 30%);
+    z-index: 1;
+    right: 12%;
+}

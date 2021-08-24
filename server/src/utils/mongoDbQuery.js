@@ -4,7 +4,7 @@ const createQuery = (params) => {
     const query = [];
     if (params.region) {
         query.push({ $or: [{ city: params.region }, { street: params.region }] })
-    } if (params.typeOfProperty.length > 0) {
+    } if (params.typeOfProperty?.length > 0) {
         query.push({ typeOfProperty: params.typeOfProperty })
     } if (params.rooms) {
         query.push({ roomsNum: { $gt: params.rooms.min-0.5, $lt: params.rooms.max } })
@@ -30,7 +30,7 @@ const createQuery = (params) => {
   
 
 const createSortQuery =(sortParameter) => {
-    if(!sortParameter) return {};
+    if(!sortParameter) return {updatedAt: -1};
 
     if(sortParameter === "updatedAt"){
         return {updatedAt: -1}

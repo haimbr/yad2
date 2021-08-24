@@ -102,7 +102,7 @@ const createHeadersObg = (ads) => {
         const result = {};
         result.apartmentsArr = ads.map((ad) => {
             return {
-                mainImg: ad.files[0],
+                mainImg: ad.files[0]?.includes("video")? ad.files[1] : ad.files[0],
                 propertyType: ad.typeOfProperty,
                 city: ad.city,
                 address: ad.street + " " + ad.houseNumber,
@@ -112,7 +112,7 @@ const createHeadersObg = (ads) => {
                 price: ad.price,
                 publishedDate: ad.updatedAt.toLocaleDateString(),
                 apartmentId: ad._id,
-                filesNum: ad.files.length,
+                filesNum: ad.files?.length,
                 contacts: ad.contacts[0]
             }
         })
@@ -125,7 +125,7 @@ const createHeadersObg = (ads) => {
 
 
 router.get('/get-file', getFileFromS3, async (req, res) => {
-    const fileName = req.query.key.split('_')[2];
+    const fileName = new Date().getTime(); 
     const stream = Readable.from(req.fileBuffer);
     res.setHeader(
         'Content-Disposition',
@@ -134,16 +134,6 @@ router.get('/get-file', getFileFromS3, async (req, res) => {
     stream.pipe(res);
 });
 
-router.get('/test1', async (req, res) => {
-    const test = createQuery({ region: "בני ברק", typeOfProperty: "דירת נופש" })
-    console.log(test);
-    try {
-        const result = await Apartment.find(test);
-        console.log(result)
-    } catch (e) {
-        console.log(e);
-    }
-});
 
 
 

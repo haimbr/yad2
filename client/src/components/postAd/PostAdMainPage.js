@@ -1,17 +1,18 @@
-import React, { useContext, useState } from 'react'
-import AddressInputs from './pages/AddressInputs'
+import React, { useContext, useState } from 'react';
+import { useHistory } from "react-router-dom";
+import AddressInputs from './pages/AddressInputs';
 import AboutTheProperty from './pages/AboutTheProperty';
 import PostAdHeader from './PostAdHeader'
 import PaymentAndDates from './pages/PaymentAndDates';
 import ContactPage from './pages/ContactPage';
-import PublishPage from './pages/PublishPage';
 import FilesPage from './pages/FilesPage';
 import { UserContext } from './../../context/UserContext';
 import { sendNewOdToServer } from './utils';
+import { setMessageAction } from '../../actions/userActions';
 
 
 const PostAd = () => {
-    const { userData } = useContext(UserContext);
+    const { userData, dispatchUserData } = useContext(UserContext);
 
     const [currentStage, setCurrentStage] = useState(1);
 
@@ -36,19 +37,31 @@ const PostAd = () => {
         details: null
     })
 
+    const history = useHistory();
 
-    const test123 = () => {
-        console.log(addressState, aboutThePropertyState, paymentAndDatesState, contactDetailsState);
-        sendNewOdToServer(userData.token, {
+
+    const onClickSubmit = async () => {
+        dispatchUserData(setMessageAction("המודעה נשלחת ברגעים אלו"));
+        const res = await sendNewOdToServer(userData.token, {
             address: addressState.details,
             aboutTheProperty: aboutThePropertyState.details,
             paymentAndDates: paymentAndDatesState.details,
             contactDetails: contactDetailsState.details
         }, filesState.details.files)
+        if (res.data) {
+            dispatchUserData(setMessageAction("המודעה נשלחה בהצלחה"));
+            history.push("/");
+        }else{
+            dispatchUserData(setMessageAction("אופסס התרחשה תקלה נסה שוב"));
+        }
+
     }
 
     return (
         <div className="post-add__container">
+            {userData.message && <div className="user-message">
+                <p>{userData.message}</p>
+            </div>}
             <PostAdHeader />
             <ul className="choose-sub-category">
                 <div className="post-page">
@@ -124,9 +137,19 @@ const PostAd = () => {
                 <div className="post-page">
                     <div className="post-page__header">
                         <span className={contactDetailsState.isValid ? "valid-input" : ""}><p>6</p></span>
-                        <h3 onClick={test123}>סיום ופרסום</h3>
+                        <h3>סיום ופרסום</h3>
                     </div>
-                    {currentStage === 6 && <PublishPage />}
+                    {currentStage === 6 && <div className="publish-page">
+                        <p>זהו, אנחנו בסוף. לנו נשאר לשמור את המודעה שלך, לך נשאר לבחור את מסלול הפרסום.</p>
+                        <span className="line"></span>
+                        <div className="post-type">
+                            <h3>בסיסי</h3>
+                            <img src="./images/post-type-background.png" alt="" />
+                            <p>&#10003; מודעה רגילה</p>
+                            <p>&#10005; הקפצה אוטומטית לחסכון בזמן</p>
+                            <span className="submit-button" onClick={onClickSubmit}><b>חינם</b> / 40 ימים</span>
+                        </div>
+                    </div>}
                 </div>
             </ul>
         </div>

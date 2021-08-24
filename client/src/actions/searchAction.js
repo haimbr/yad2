@@ -70,19 +70,6 @@ export const setFreeTextAction = (freeText) => ({
     freeText
 });
 
-export const setOnlyWithImgAction = () => ({
-    type: "SET_ONLY_WITH_IMG",
-});
-
-export const setOnlyWithPriceAction = () => ({
-    type: "SET_ONLY_WITH_PRICE",
-});
-
-export const setSortParameterAction = (sortBy) => ({
-    type: "SET_SORT_PARAMETER",
-    sortBy
-});
-
 
 export const clearSearchAction = () => ({
     type: "CLEAR_SEARCH",

@@ -1,5 +1,6 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import { useHistory } from "react-router-dom";
+import { UserContext } from './../../context/UserContext';
 
 const quickSearchData = [
     { text: 'נדל"ן', icon: 'home-icon' },
@@ -27,7 +28,16 @@ const navByCategoryData = [
 
 const MobileMenu = ({ setDisplayLogin, setDisplayMobileNav }) => {
 
+    const { userData } = useContext(UserContext);
+    const history = useHistory();
 
+       const onClickPostNewAd = () => {
+        if (!userData.user) {
+            setDisplayLogin(true);
+        } else {
+            history.push('/postAd');
+        }
+    }
 
     return (
         <div className="mobile-menu-container">
@@ -39,7 +49,7 @@ const MobileMenu = ({ setDisplayLogin, setDisplayMobileNav }) => {
                         <img src="./images/user-icon.png" alt="user-icon" />
                         <span>התחברות</span>
                     </div>
-                    <button>פרסום מודעה </button>
+                    <button onClick={onClickPostNewAd}>פרסום מודעה </button>
                     <div className="icons">
                         <div><img src="./images/bell-icon.png" alt="bell-icon" />התראות שלי</div>
                         <div><img src="./images/like-icon.png" alt="like-icon" />מודעות שאהבתי</div>

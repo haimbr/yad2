@@ -13,13 +13,14 @@ export const getApartmentBody = async (apartmentId) => {
     }
 }
 
-export const getApartmentsHeaders = async (searchParameters) => {
+export const getApartmentsHeaders = async (searchParameters , requestedPage) => {
     try {
         const apartmentArr = await axios.post(serverUrl + '/apartments/get-apartments', {
             searchParameters: searchParameters,
             otherParameters: {
                 getHeaders: true,
                 getPagesCount: true,
+                requestedPage: requestedPage
             }
         });
         console.log(apartmentArr);
@@ -29,7 +30,7 @@ export const getApartmentsHeaders = async (searchParameters) => {
     }
 
 }
-export const searchAds = async (searchData) => {
+export const searchAds = async (searchData, sortType, searchOnlyWithImg , searchOnlyWithPrice, requestedPage) => {
 
     let typeOfProperty = [...searchData.propertyTypes.apartmentsArr, ...searchData.propertyTypes.housesArr, ...searchData.propertyTypes.othersArr];
     typeOfProperty = typeOfProperty.filter(e => e);
@@ -43,11 +44,11 @@ export const searchAds = async (searchData) => {
         price: getMinAndMax(searchData.price),
         floor: getMinAndMax(searchData.floor),
         size: getMinAndMax(searchData.apartmentSize),
-        onlyWithImg: searchData.onlyWithImg,
-        onlyWithPrice: searchData.onlyWithPrice,
-        sortParameter: searchData.sortBy
+        onlyWithImg: searchOnlyWithImg,
+        onlyWithPrice: searchOnlyWithPrice,
+        sortParameter: sortType
     }
-    const result = await getApartmentsHeaders(parameters);
+    const result = await getApartmentsHeaders(parameters, requestedPage);
     return result;
 }
 

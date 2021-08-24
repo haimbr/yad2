@@ -13,9 +13,6 @@ export const searchDataInitialState = {
     apartmentSize: { min: "", max: "" },
     entryDate: "",
     freeText: "",
-    onlyWithImg: false,
-    onlyWithPrice: false,
-    sortBy: "updatedAt"
 }
 
 
@@ -86,22 +83,6 @@ const searchReducer = (searchData, action) => {
                 ...searchData,
                 freeText: action.freeText
             };
-        case "SET_ONLY_WITH_IMG":
-            return {
-                ...searchData,
-                onlyWithImg: !searchData.onlyWithImg
-            };
-        case "SET_ONLY_WITH_PRICE":
-            return {
-                ...searchData,
-                onlyWithPrice: !searchData.onlyWithPrice
-            };
-        case "SET_SORT_PARAMETER":
-            return {
-                ...searchData,
-                sortBy: action.sortBy
-            };
-
 
         case "CLEAR_SEARCH":
             return searchDataInitialState;
@@ -122,3 +103,5 @@ const createPropertiesTypesCopy = (data) => {
 }
 
 export default searchReducer;
+
+

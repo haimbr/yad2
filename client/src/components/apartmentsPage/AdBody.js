@@ -15,13 +15,16 @@ import {
     faBars,
     faCalendarWeek,
 } from '@fortawesome/free-solid-svg-icons';
+import DisplayImages from './displayImages/DisplayImages';
+
+
 
 const properties = ['מיזוג', 'ממ"ד', 'מחסן', 'דלתות פנדור', 'ריהוט', 'גישה לנכים', 'מעלית', 'מזגן תדיראן', 'יחידת דיור', 'משופצת', 'מטבח כשר', 'דוד שמש', 'סורגים', 'לטווח ארוך'];
 const propertiesIcons = [faSnowflake, faHouseDamage, faBoxOpen, faDoorClosed, faChair, faWheelchair, faDungeon, faSnowflake, faHome, faPaintRoller, faFaucet, faSolarPanel, faBars, faCalendarWeek];
 
-const AdBody = ({ apartment }) => {
+const AdBody = ({ apartment, isDisplayImagesOpen, setIsDisplayImagesOpen }) => {
     return (
-        <div className="Ad-body_container">
+        <div className="Ad-body_container" onClick={(e) => e.stopPropagation()}>
             <div className="placeHolder"></div>
             {apartment && <div className="ad-body__content">
                 {apartment.apartmentDesc && <span className="property__desc">
@@ -50,9 +53,11 @@ const AdBody = ({ apartment }) => {
                                 {property}
                             </span>
                         ))
-
                         }
                     </span>
+                </div>
+                <div className={isDisplayImagesOpen ? "" : "not-active"}>
+                    <DisplayImages filesArr={apartment.files} setIsDisplayImagesOpen={setIsDisplayImagesOpen}  />
                 </div>
             </div>}
         </div>

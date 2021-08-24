@@ -1,9 +1,9 @@
 import React, { createRef, useContext, useState } from 'react'
 import InputElement from '../InputElement.component';
-import { searchAutoComplete } from '../utils';
 import { SearchContext } from '../../../context/SearchContext';
 import { setRegionAction } from '../../../actions/searchAction';
 import useOnClickOutsideClose from '../../../hooks/useOnClickOutsideClose';
+import { searchAutoComplete } from '../../../api/autoComplete';
 
 
 const SearchRegionInput = () => {

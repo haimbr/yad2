@@ -48,8 +48,7 @@ export const sendNewOdToServer = async (token, newOd, files) => {
                 Authorization: "Bearer " + token
             }
         });
-        console.log(apartmentId.data);
-        console.log(apartmentId.data.apartmentId);
+
         await axios.post(filesUrl, files,{
             params: {
                 apartmentId: apartmentId.data,

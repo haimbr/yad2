@@ -1,9 +1,14 @@
 .apartments__container {
+  min-height: 50vh;
   max-width: 700px;
   margin: auto;
   border: 1px solid #00000036;
-}
 
+  
+}
+.mobile__header{
+  display: none;
+}
 .ad-header__container {
   position: relative;
   display: flex;
@@ -49,16 +54,16 @@
       .icon {
         text-align: center;
       }
-      b{
+      b {
         font-size: 0.7rem;
         position: absolute;
-        color: rgba(0,0,0,.6);
+        color: rgba(0, 0, 0, 0.6);
         padding-left: 4px;
         padding-bottom: 3px;
       }
     }
-    &:hover{
-      span{
+    &:hover {
+      span {
         display: flex;
       }
     }
@@ -205,7 +210,7 @@
 
       .header__img {
         height: 100px;
-        width: 125px;
+        width: 195px;
         margin: 5px;
       }
       .main-content {
@@ -261,19 +266,142 @@
   }
 }
 
-.apartment-page-header{
+.apartment-page-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 700px;
   margin: 20px auto;
 
-  p{
+  p {
     color: #0000005c;
     font-size: 0.9rem;
   }
-  h1{
+  h1 {
     font-size: 1.5rem;
     font-weight: 500;
   }
+}
+
+@media (max-width: 560px) {
+  .apartments__container {
+    .adOpen {
+      flex-direction: column;
+      padding-top: 50px;
+
+      .Ad-body_container {
+        position: relative;
+        padding-bottom: 60px;
+        top: 30px;
+      }
+
+      .header__container {
+        &::after {
+          content: "\276F";
+          position: absolute;
+          top: 10px;
+          left: 15px;
+          color: white;
+        }
+      }
+      .Ad-body_container {
+        .placeHolder {
+          display: none;
+        }
+      }
+      .header__img {
+        flex: none;
+        width: 100%;
+        margin: 0;
+        height: 65vw;
+      }
+
+      .main-content {
+        justify-content: flex-end;
+        margin-top: 20px;
+        width: 100%;
+        padding: 13px;
+
+        .right-side span p {
+          font-size: 1rem;
+        }
+        .left-side {
+          height: fit-content;
+          align-items: end;
+
+          span p {
+            display: none;
+          }
+          span h3 {
+            font-size: 1.2rem;
+          }
+        }
+        .rooms-and-floor {
+          border: none !important;
+          width: 95%;
+          margin: auto;
+          padding: 10px 0;
+          box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+          margin-top: 20px;
+
+          p {
+            padding-top: 9px;
+            font-size: 0.9rem !important;
+          }
+        }
+      }
+    }
+  }
+
+  .left-side {
+    .show-phonNumber__button {
+      position: fixed;
+      z-index: 11;
+      width: calc(100vw - 20px);
+      left: 0px;
+      bottom: 0;
+      border: 10px solid white;
+      box-sizing: content-box;
+      box-shadow: 0 -4px 5px -5px #33333382;
+    }
+  }
+  
+  .apartments__container {
+    .adOpen {
+      position: fixed !important;
+      background: white;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      margin: 0;
+      width: 100vw;
+      height: 100vh !important;
+      overflow: scroll;
+  
+      // &::before{
+      //   content: ">"
+      // }
+    }
+  
+    .Ad-body_container {
+    }
+  }
+  
+  .mobile__header {
+    display: block;
+    .header__container {
+      position: fixed;
+      z-index: 2;
+      width: 100%;
+      top: 0;
+      left: 0;
+      margin: 0;
+  
+      .header__menu__nav {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+  
 }

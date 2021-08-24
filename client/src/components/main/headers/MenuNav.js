@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
+import { useHistory } from "react-router-dom";
 import { logoutAction } from '../../../actions/userActions';
 import { UserContext } from '../../../context/UserContext';
 import { deleteUserFromCookie } from '../../../cookies/cookies';
@@ -8,6 +9,7 @@ import { logOut } from './../../login/utils';
 function MenuNav({ setDisplayLogin, setDisplayMobileNav }) {
 
     const { userData, dispatchUserData } = useContext(UserContext);
+    const history = useHistory();
 
     const onClickLogout = (event) => {
         event.stopPropagation();
@@ -27,7 +29,7 @@ function MenuNav({ setDisplayLogin, setDisplayMobileNav }) {
         if (!userData.user) {
             setDisplayLogin(true);
         } else {
-
+            history.push('/postAd');
         }
     }
 
@@ -38,7 +40,7 @@ function MenuNav({ setDisplayLogin, setDisplayMobileNav }) {
                 <img src="./images/yad2Logo.png" alt="logo-icon"></img>
                 <img className="mobile__logo" src="./images/Yad2_logo_white.svg" alt="logo-icon"></img>
             </div>
-            <div className="header-menu__small-screen" onClick={() => setDisplayMobileNav(true)}>
+            <div className="header-menu__small-screen" onClick={() => {if(setDisplayMobileNav)setDisplayMobileNav(true)}}>
                 <div className="menu-icon">
                     <div></div>
                     <div></div>

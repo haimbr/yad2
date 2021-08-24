@@ -2,12 +2,14 @@ import React, { useContext } from 'react'
 import { searchAds } from '../../../api/apartmentsUtils';
 import { SearchContext } from './../../../context/SearchContext';
 
-const SearchButton = ({ setAdsArr, setIsNoResult, setResultsCount, setIsAdvancedSearchOpen }) => {
+const SearchButton = ({ setAdsArr, setIsNoResult, setResultsCount, setIsAdvancedSearchOpen,isMobileMode, setIsMobileMode, setIsMobileSearchOpen }) => {
 
     const { searchData } = useContext(SearchContext);
 
 
     const onClickSearch = async () => {
+        if(isMobileMode){ setIsMobileMode(false); setIsMobileSearchOpen(true)}
+        console.log(isMobileMode)
         setIsAdvancedSearchOpen(false);
         const apartmentsArr = await searchAds(searchData);
         setAdsArr(apartmentsArr.data.apartmentsArr);

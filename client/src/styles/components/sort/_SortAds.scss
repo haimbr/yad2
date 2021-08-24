@@ -71,6 +71,10 @@
   display: flex;
   align-items: center;
 
+  .sort-button__mobile{
+    display: none;
+  }
+
   .icon {
     color: #000000a3;
     margin-left: 3px;
@@ -97,5 +101,10 @@
 }
 
 .color-orange{
-  color: red;
+  color: #ff7100;
+  svg{
+    color: #ff7100 !important;
+  }
 }
+
+
